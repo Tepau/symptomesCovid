@@ -360,8 +360,9 @@
                                     </tr>
                                   </tbody>
                                 </table>
-                                {{ recapitulatif }}
-                                {% if autorisation == False %}
+                                {% if autorisation %}
+                                  <p>Vous avez répondu non à toutes les questions</p>
+                                {% else %}
                                   <p>Vous avez répondu oui aux questions portant sur les sujets suivants :</p>
                                 <ul>
                                   {% for x in symptomes %}
