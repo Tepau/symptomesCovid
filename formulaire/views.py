@@ -70,7 +70,6 @@ def ContactView(request):
             if checkAnswer(list(reponses.values())):
                 val['verdict'] = 'ACCÈS AUTORISÉ'
                 autorisation = True
-                recapitulatif = 'Vous avez répondu non à toutes les questions'
             else:
                 val['verdict'] = 'ACCÈS REFUSÉ'
                 autorisation = False
