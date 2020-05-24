@@ -349,10 +349,15 @@
                       <td>
                         <p>Le {{ date }} à {{ heure }},</p>
                         <p>{{ prenom|capfirst }} {{ nom|capfirst }} répondu oui aux questions portant sur les sujets suivants :</p>
+
                           <ul>
+                            {% if symptomes|length > 1 %}
                               {% for x in symptomes %}
                                   <li>{{ x|capfirst }}</li>
                               {% endfor %}
+                            {% else %}
+                                <li>{{ symptomes |capfirst }}</li>
+                            {% endif %}
                           </ul>
                           <p>Vous pouvez le contacter à l'adrre mail suivante : {{ email }}</p>
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
