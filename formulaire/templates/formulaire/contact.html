@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire Des Symptômes</title>
+    <style type="text/css">
+        .link { text-align : right; margin-right : 15px;}
+    </style>
+</head>
+<body>
+    <div class="link">
+        <a href="/admin/">Admin</a>
+    </div>
+    <hr>
+
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" value="valider">
+    </form>
+<script>
+    let fievre = document.getElementsByTagName("label")[4];
+    let paragrapheFievre = fievre.parentNode;
+    console.log(paragrapheFievre);
+    var newParagraphe = document.createElement("p");
+    var newParagrapheText = document.createTextNode("Présentez-vous ce jour ou avez-vous présenté dans les 48 heures précédentes un des signes suivants ?");
+    newParagraphe.appendChild(newParagrapheText);
+    newParagraphe.style.fontWeight = "bold";
+    var insertedNode = paragrapheFievre.insertBefore(newParagraphe, fievre);
+
+
+</script>
+</body>
+</html>
