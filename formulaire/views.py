@@ -73,8 +73,16 @@ def ContactView(request):
             else:
                 val['verdict'] = 'ACCÈS REFUSÉ'
                 val['autorisation'] = False
-                oui = list(itemgetter(*[idx for idx,e in enumerate(list(reponses.values())) if e == 'False'])(list(reponses.keys())))
-                val['symptomes'] = oui
+                oui = itemgetter(*[idx for idx,e in enumerate(list(reponses.values())) if e == 'False'])(list(reponses.keys()))
+                if oui == str(oui):
+                    val['symptomes'] = oui
+                    val['types'] = 'str'
+                    print('str')
+                elif oui == tuple(oui):
+                    val['symptomes'] = list(oui)
+                    val['types'] = 'tuple'
+                    print('tuple')
+
                 val['email'] = email
                 html_message = render_to_string('formulaire/alertEmail.html', val)
                 plain_message = strip_tags(html_message)

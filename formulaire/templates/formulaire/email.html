@@ -365,9 +365,13 @@
                                 {% else %}
                                   <p>Vous avez répondu oui aux questions portant sur les sujets suivants :</p>
                                 <ul>
-                                  {% for x in symptomes %}
-                                  <li>{{ x|capfirst }}</li>
-                                  {% endfor %}
+                                  {% if types == "tuple" %}
+                                    {% for x in symptomes %}
+                                        <li>{{ x|capfirst }}</li>
+                                    {% endfor %}
+                                  {% elif types == "str" %}
+                                      <li>{{ symptomes|capfirst }}</li>
+                                  {% endif %}
                                 </ul>
                                   <p>Un email a été transmis au chef de l'établissement</p>
                                 {% endif %}

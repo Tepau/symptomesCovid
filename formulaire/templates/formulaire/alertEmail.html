@@ -351,12 +351,12 @@
                         <p>{{ prenom|capfirst }} {{ nom|capfirst }} répondu oui aux questions portant sur les sujets suivants :</p>
 
                           <ul>
-                            {% if symptomes|length > 1 %}
+                            {% if types == "tuple" %}
                               {% for x in symptomes %}
                                   <li>{{ x|capfirst }}</li>
                               {% endfor %}
-                            {% else %}
-                                <li>{{ symptomes |capfirst }}</li>
+                            {% elif types == "str" %}
+                                <li>{{ symptomes|capfirst }}</li>
                             {% endif %}
                           </ul>
                           <p>Vous pouvez le contacter à l'adrre mail suivante : {{ email }}</p>
