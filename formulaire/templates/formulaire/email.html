@@ -361,7 +361,7 @@
                                   </tbody>
                                 </table>
                                 {{ recapitulatif }}
-                                {% if not autorisation %}
+                                {% if autorisation == False %}
                                   <p>Vous avez répondu oui aux questions portant sur les sujets suivants :</p>
                                 <ul>
                                   {% for x in symptomes %}
