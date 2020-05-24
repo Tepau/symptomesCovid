@@ -69,10 +69,10 @@ def ContactView(request):
             }
             if checkAnswer(list(reponses.values())):
                 val['verdict'] = 'ACCÈS AUTORISÉ'
-                autorisation = True
+                val['autorisation'] = True
             else:
                 val['verdict'] = 'ACCÈS REFUSÉ'
-                autorisation = False
+                val['autorisation'] = False
                 oui = list(itemgetter(*[idx for idx,e in enumerate(list(reponses.values())) if e == 'False'])(list(reponses.keys())))
                 val['symptomes'] = oui
                 val['email'] = email
